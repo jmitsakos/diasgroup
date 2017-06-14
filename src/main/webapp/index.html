@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Dias Group</title>
+		<meta http-equiv="content-type" content="application/xhtml+xml; charset=ISO-8859-7" />
+		<!--<link rel="stylesheet" type="text/css" href="css/style.css" media="screen"/>-->
+
+		<link href="css/angular-group.css" rel="stylesheet">
+		<script src="js/angular-group.js" type="text/javascript"></script>
+		<script src="js/grid/ui-grid.min.js"></script>
+		<link rel="stylesheet" href="resources/angular-ui-grid/ui-grid.min.css"/>
+		<link rel="stylesheet" href="resources/css/ui-grid.css"/>
+
+		<link rel="stylesheet" type="text/css" href="js/bower/angular-toastr/dist/angular-toastr.min.css">
+		<script type="text/javascript" src="js/bower/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+
+		<script src="js/app.js"></script>
+
+		<!-- Common building blocks like configuration, interceptors etc. -->
+		<script src="js/blocks/config/error/Error.config.js"></script>
+		<script src="js/blocks/config/message/Message.config.js"></script>
+
+		<script src="js/blocks/filters/format.filter.js"></script>
+
+		<script src="js/blocks/directives/bindEnter.js"></script>
+
+		<script src="js/blocks/locale/Locale.service.js"></script>
+		<script src="js/blocks/locale/Locale.filter.js"></script>
+
+		<!-- Common components like alerting and form validation-->
+		<script src="js/components/alert/Alert.config.js"></script>
+		<script src="js/components/alert/Alert.service.js"></script>
+
+		<!-- Common services like authentication and user management -->
+		<script src="js/services/logger/Logger.constant.js"></script>
+		<script src="js/services/logger/Logger.service.js"></script>
+
+		<script src="js/services/rest/DiasHttp.service.js"></script>
+		<script src="js/services/rest/ResponseHandling.service.js"></script>
+
+		<script src="js/services/var/Url.service.js"></script>
+		<script src="js/services/var/Util.service.js"></script>
+
+		<script src="js/components/real-estate/RealEstate.component.js"></script>
+		<script src="js/components/real-estate/RealEstate.config.js"></script>
+		<script src="js/components/real-estate/RealEstate.controller.js"></script>
+		<script src="js/components/real-estate/RealEstate.service.js"></script>
+
+		<script src="js/grid/custom-grid.js"></script>
+
+
+		<style type="text/css">
+			[ng\:cloak], [ng-cloak], .ng-cloak {
+				display: none !important;
+			}
+		</style>
+	</head>
+
+	<body ng-app="dias" ng-cloak>
+		<h1>DIAS-GROUP</h1>
+		<!--<div ng-controller="rsCtrl as rs" ng-cloak class="ng-cloak">-->
+		<div ng-controller="GridController">
+			<select ng-model="lang" ng-options="l for l in langs"></select><br>
+			<div ui-i18n="{{lang}}">
+				<p>Using attribute:</p>
+				<p ui-t="groupPanel.description"></p>
+				<p>Found {{gridOptions.totalItems}} estates</p>
+				<!--<p>Found {{rs.realEstates.length}} estates</p>-->
+				<!--<div ng-repeat="item in (rs.realEstate.data.realEstates) track by item.id">
+					{{item.id}} | {{item.name}} | {{item.address}} | {{item.type}} | {{item.square}} | {{item.price}}
+				</div>-->
+				<div id="grid1" ui-grid="gridOptions" ui-grid-pagination ui-grid-selection class="diasGrid"></div>
+				<button type="button" class="btn btn-success" ng-click="deleteAll()">Delete All</button>
+			</div>
+		</div>
+	</body>
+</html>

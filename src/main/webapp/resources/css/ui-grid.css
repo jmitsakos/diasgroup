@@ -1,0 +1,10 @@
+.diasGrid {
+	width: 700px;
+	height: 250px;
+}
+
+.gridCell {
+	/*color: blue;*/
+	/*max-width:100%;*/
+	white-space: nowrap; !important;
+}

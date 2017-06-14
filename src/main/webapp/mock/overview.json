@@ -1,0 +1,14 @@
+{
+	"fault": null,
+	"data": {
+		"salesOverview": {
+			"totalSales": 100,
+			"totalTransactions": 200
+		},
+		"progress": {
+			"updatedStores": 100,
+			"totalStores": 354
+		}
+	}
+}
+
